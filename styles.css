@@ -1,0 +1,204 @@
+/* ===================================
+   KEYBIRD - CARTOONISH PIXEL GAME
+   CSS Styling
+   =================================== */
+
+:root {
+    /* Cartoonish Color Palette - Flappy Bird Style */
+    --sky-light: #4EC0CA;
+    --sky-dark: #2A9AA5;
+    --cloud-white: #FFFFFF;
+
+    --bird-yellow: #FFD700;
+    --bird-orange: #FF8C00;
+    --bird-red: #DC143C;
+    --bird-outline: #000000;
+
+    --pipe-green: #5CB85C;
+    --pipe-dark: #3D8B3D;
+    --pipe-highlight: #7CD67C;
+    --pipe-outline: #2C662C;
+
+    --ground-brown: #DEB887;
+    --ground-dark: #8B7355;
+    --grass-green: #90EE90;
+
+    --ui-white: #FFFFFF;
+    --ui-black: #000000;
+    --ui-panel: #FAEBD7;
+    --ui-panel-border: #8B7355;
+    --ui-gold: #FFD700;
+    --ui-silver: #C0C0C0;
+    --ui-bronze: #CD7F32;
+
+    --btn-green: #5CB85C;
+    --btn-green-hover: #4A9A4A;
+    --btn-green-active: #3D8B3D;
+    --btn-outline: #2C662C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /* Prevent pull-to-refresh on mobile */
+    overscroll-behavior: none;
+    touch-action: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background: #2c2c2c;
+    border-radius: 20px;
+    box-shadow:
+        0 0 0 8px #444,
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px rgba(0, 0, 0, 0.5);
+    animation: float 6s ease-in-out infinite;
+    max-width: 95vw;
+    width: min-content;
+    /* Hug the canvas */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+#gameCanvas {
+    border: 4px solid var(--ui-black);
+    background: var(--sky-light);
+    border-radius: 4px;
+    box-shadow:
+        0 0 0 2px #111,
+        0 0 20px rgba(78, 192, 202, 0.4);
+
+    /* Pixel-perfect rendering */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    /* Scalable layout */
+    height: auto;
+    width: 100%;
+    max-height: 85vh;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+    display: block;
+}
+
+/* Mute Button */
+.mute-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--ui-white);
+    border: 4px solid var(--ui-black);
+    color: var(--ui-black);
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+    image-rendering: pixelated;
+    touch-action: manipulation;
+}
+
+.mute-btn:hover {
+    background: var(--btn-green-hover);
+    color: var(--ui-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.mute-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Credits Styling */
+.credits {
+    color: #FFD700;
+    text-align: center;
+    font-size: clamp(8px, 1.5vh, 12px);
+    line-height: 1.6;
+    text-shadow: 2px 2px 0 #000;
+    z-index: 100;
+    pointer-events: auto;
+    margin-top: 1.5vh;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.8vh 1.6vh;
+    border-radius: 8px;
+    border: 2px solid #555;
+    box-shadow: 0 4px 0 #000;
+    width: fit-content;
+}
+
+.credits a {
+    color: #4EC0CA;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.credits a:hover {
+    color: #FFD700;
+    text-decoration: underline;
+}
+
+.feedback-link {
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid transparent;
+}
+
+.feedback-link:hover {
+    border-bottom: 2px solid #FFD700;
+    transform: scale(1.05);
+}
+
+/* Prevent zoom on double tap (iOS) */
+button,
+canvas {
+    touch-action: manipulation;
+}

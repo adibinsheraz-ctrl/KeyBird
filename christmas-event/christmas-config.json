@@ -1,0 +1,56 @@
+{
+  "eventName": "Christmas Edition 2025",
+  "startDate": "2025-12-01T00:00:00Z",
+  "endDate": "2026-01-06T23:59:59Z",
+  "version": "1.0.0",
+  
+  "features": {
+    "snowfall": true,
+    "christmasLights": true,
+    "presents": true,
+    "powerUps": true,
+    "comboSystem": true,
+    "dailyChallenges": true,
+    "achievements": true,
+    "leaderboard": true,
+    "customSounds": true,
+    "santaBird": true,
+    "candyCanePipes": true,
+    "northernLights": false,
+    "santaSilhouette": true
+  },
+  
+  "difficulty": {
+    "presentSpawnRate": 180,
+    "powerUpSpawnChance": 0.01,
+    "comboDecayTime": 120,
+    "baseGameSpeed": 1.0
+  },
+  
+  "visuals": {
+    "snowParticleCount": 150,
+    "maxSparkles": 50,
+    "starCount": 100,
+    "christmasLightsCount": 15
+  },
+  
+  "audio": {
+    "backgroundMusicVolume": 0.3,
+    "sfxVolume": 0.5,
+    "enableJingleBells": true,
+    "enableHoHoHo": true
+  },
+  
+  "scoring": {
+    "redPresentPoints": 1,
+    "greenPresentPoints": 3,
+    "bluePresentPoints": 5,
+    "comboMultiplierStep": 0.5,
+    "comboThreshold": 5
+  },
+  
+  "contact": {
+    "developer": "Adi",
+    "email": "adi.binsheraz@gmail.com"
+  }
+}
